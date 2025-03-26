@@ -26,6 +26,10 @@ API Endpoints
 
    -GET /fetch-characters?species=Human&status=Alive&page=1&size=2
 
-3. Architecture diagram for technology been used for this project.    
+Architecture diagram for technology been used for this project.    
  
 ![image](https://github.com/user-attachments/assets/72913e41-097f-42db-9e7c-ef60debcb509)
+
+Dockerizing the API
+
+Created a Dockerfile with a multi-stage build process using distroless images (Has enhanced security, minimal dependence and ideal for PRODUCTION workloads )
