@@ -24,6 +24,8 @@ API Endpoints
      
 2. Search Characters by Species, status and Origin.
 
-   - 
+   -GET /fetch-characters?species=Human&status=Alive&page=1&size=2
+
+3. Architecture diagram for technology been used for this project.    
  
 ![image](https://github.com/user-attachments/assets/72913e41-097f-42db-9e7c-ef60debcb509)
