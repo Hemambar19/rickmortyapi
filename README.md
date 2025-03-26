@@ -79,6 +79,7 @@ spec:
           limits:
             cpu: "500m"
             memory: "1Gi"
+            
 2. Created a Service YAML file (service.yml)
 
 apiVersion: v1
