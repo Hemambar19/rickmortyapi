@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rick-morty-hpa-app
+  labels:
+    app: rick-morty-hpa-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rick-morty-hpa-app
+  template:
+    metadata:
+      labels:
+        app: rick-morty-hpa-app
+    spec:
+      containers:
+      - name: rick-morty-hpa-app
+        image: hemambar17/rickmoty:v1.0
+        ports:
+        - containerPort: 8082
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "512Mi"
+          limits:
+            cpu: "500m"
+            memory: "1Gi"

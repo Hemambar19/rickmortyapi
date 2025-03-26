@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rick-morty-hpa-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rick-morty-hpa-app
+  template:
+    metadata:
+      labels:
+        app: rick-morty-hpa-app
+    spec:
+      containers:
+        - name: rick-morty-hpa-app
+          image: hemambar17/rickmoty:v1.0
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: shared-logs
+              mountPath: /var/log/app
+
+        - name: sidecar-container
+          image: busybox
+          command: ["/bin/sh", "-c"]
+          args:
+            - while true; do cat /var/log/app/access.log; sleep 5; done;
+          volumeMounts:
+            - name: shared-logs
+              mountPath: /var/log/app
+
+      volumes:
+        - name: shared-logs
+          emptyDir: {}
